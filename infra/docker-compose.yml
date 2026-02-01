@@ -1,0 +1,43 @@
+# infra/docker-compose.yml
+version: "3.8"
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: skyslots
+      POSTGRES_USER: skyslots
+      POSTGRES_PASSWORD: skyslots
+    volumes:
+      - db-data:/var/lib/postgresql/data
+  redis:
+    image: redis:7
+  minio:
+    image: minio/minio
+    command: server /data
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    volumes:
+      - minio-data:/data
+  backend:
+    build: ./backend
+    depends_on: [db, redis, minio]
+    env_file:
+      - ./infra/.env
+    ports:
+      - "8000:8000"
+  worker:
+    build: ./backend
+    command: celery -A app.workers.celery_app worker --loglevel=info
+    depends_on: [redis, db]
+    env_file:
+      - ./infra/.env
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./infra/.env
+volumes:
+  db-data:
+  minio-data:
