@@ -8,7 +8,6 @@ body:
     attributes:
       value: |
         Hello! Thank you for reporting an issue with SkySlots.
-        
         Before reporting, please also check existing issues in this repository - you can filter them by "bug" label (also check closed ones).
   - type: input
     id: id
