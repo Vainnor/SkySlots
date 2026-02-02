@@ -1,7 +1,7 @@
 name: Bug report
 description: Report found issue with SkySlots
-labels: []
-assignees: []
+labels: ["bug", "pending triage"]
+assignees: ["vainnor"]
 type: "Bug"
 body:
   - type: markdown
@@ -16,34 +16,45 @@ body:
     attributes:
       label: Your Vatsim CID
       description: It is your Vatsim login.
+    validations:
+      required: false
   - type: input
     id: version
     attributes:
-      label: SkySlots Version
-      description: Please include SkySlots version - you can find it in the footer
+      label: SkySlots version
+      description: Please include SkySlots - you can find it in the footer
       placeholder: For example, 0.1.1
     validations:
-      required: 
-  - type: textarea
+      required: false
+  - type: input
     id: what
     attributes:
       label: Describe your issue
       description: Please tell us what's happening, what is expected and actual result. Include some screenshots and videos if there are some!
+      placeholder: Issue
+    validations:
+      required: true
   - type: textarea
     id: how
     attributes:
       label: Reproduction steps
       description: Please describe how can we reproduce this issue - even if it's obvious. If your issue relates to some controller or specific user, include callsign(s) and cid(s). If it's hard to reproduce, a video would be nice to see.
+    validations:
+      required: false
   - type: input
     id: platform
     attributes:
       label: Platform
       description: Specify your platform (windows, macos, ios, android), as well as browser and it's version
+    validations:
+      required: false
   - type: textarea
     id: additional
     attributes:
       label: Additional info
       description: Is there something additional we need to know? Please tell us!
+    validations:
+      required: false
   - type: checkboxes
     id: validation
     attributes:
@@ -51,3 +62,4 @@ body:
       description: Please validate your report
       options:
         - label: I have searched for other issues and didn't found any alike
+          required: true
