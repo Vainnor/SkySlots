@@ -1,7 +1,7 @@
 name: Bug report
 description: Report found issue with SkySlots
 labels: []
-assignees: ["vainnor"]
+assignees: []
 type: "Bug"
 body:
   - type: markdown
