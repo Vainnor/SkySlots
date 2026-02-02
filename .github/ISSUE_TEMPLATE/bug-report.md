@@ -1,5 +1,5 @@
 ---
-name: Bugs
+name: Bug Report
 about: Report a problem with SkySlots
 title: ''
 labels: bug, pending-triage
