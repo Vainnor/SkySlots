@@ -1,6 +1,6 @@
 name: Bug report
 description: Report found issue with SkySlots
-labels: ["bug", "pending triage"]
+labels: []
 assignees: ["vainnor"]
 type: "Bug"
 body:
